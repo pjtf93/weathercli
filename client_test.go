@@ -158,7 +158,7 @@ func TestCurrentWeatherByCoordsE2E(t *testing.T) {
 	if weather.Time.IsZero() {
 		t.Error("Weather time is zero")
 	}
-	
+
 	// API may round coordinates slightly, allow small difference
 	latDiff := weather.Location.Latitude - lat
 	if latDiff < -0.01 || latDiff > 0.01 {
@@ -310,17 +310,17 @@ func TestWindDirectionEdgeCases(t *testing.T) {
 		degrees int
 		want    string
 	}{
-		{-45, "NW"},   // -45 + 360 = 315 = NW
-		{-1, "N"},     // -1 + 360 = 359 = N
-		{22, "NNE"},   // 22 = NNE
-		{23, "NNE"},   // 23 = NNE
-		{34, "NE"},    // 34 = NE
-		{67, "ENE"},   // 67 = ENE
-		{90, "E"},     // 90 = E
-		{361, "N"},    // 361 % 360 = 1 = N
-		{405, "NE"},   // 405 % 360 = 45 = NE
-		{-90, "W"},    // -90 + 360 = 270 = W
-		{-180, "S"},   // -180 + 360 = 180 = S
+		{-45, "NW"}, // -45 + 360 = 315 = NW
+		{-1, "N"},   // -1 + 360 = 359 = N
+		{22, "NNE"}, // 22 = NNE
+		{23, "NNE"}, // 23 = NNE
+		{34, "NE"},  // 34 = NE
+		{67, "ENE"}, // 67 = ENE
+		{90, "E"},   // 90 = E
+		{361, "N"},  // 361 % 360 = 1 = N
+		{405, "NE"}, // 405 % 360 = 45 = NE
+		{-90, "W"},  // -90 + 360 = 270 = W
+		{-180, "S"}, // -180 + 360 = 180 = S
 	}
 
 	for _, tt := range tests {

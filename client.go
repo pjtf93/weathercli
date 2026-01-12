@@ -166,19 +166,19 @@ func (c *Client) CurrentByCoords(ctx context.Context, lat, lon float64, loc *Loc
 		Longitude float64 `json:"longitude"`
 		Timezone  string  `json:"timezone"`
 		Current   struct {
-			Time              string  `json:"time"`
-			Temperature       float64 `json:"temperature_2m"`
-			Apparent          float64 `json:"apparent_temperature"`
-			Humidity          int     `json:"relative_humidity_2m"`
-			Precipitation     float64 `json:"precipitation"`
-			Rain              float64 `json:"rain"`
-			Snowfall          float64 `json:"snowfall"`
-			WeatherCode       int     `json:"weather_code"`
-			CloudCover        int     `json:"cloud_cover"`
-			Pressure          float64 `json:"pressure_msl"`
-			WindSpeed         float64 `json:"wind_speed_10m"`
-			WindDirection     int     `json:"wind_direction_10m"`
-			UVIndex           float64 `json:"uv_index"`
+			Time          string  `json:"time"`
+			Temperature   float64 `json:"temperature_2m"`
+			Apparent      float64 `json:"apparent_temperature"`
+			Humidity      int     `json:"relative_humidity_2m"`
+			Precipitation float64 `json:"precipitation"`
+			Rain          float64 `json:"rain"`
+			Snowfall      float64 `json:"snowfall"`
+			WeatherCode   int     `json:"weather_code"`
+			CloudCover    int     `json:"cloud_cover"`
+			Pressure      float64 `json:"pressure_msl"`
+			WindSpeed     float64 `json:"wind_speed_10m"`
+			WindDirection int     `json:"wind_direction_10m"`
+			UVIndex       float64 `json:"uv_index"`
 		} `json:"current"`
 	}
 

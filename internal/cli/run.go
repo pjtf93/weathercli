@@ -2,7 +2,6 @@ package cli
 
 import (
 	"context"
-	"encoding/json"
 	"fmt"
 	"io"
 	"os"
@@ -186,11 +185,4 @@ func (c *SearchCmd) Run(app *App) error {
 	}
 
 	return app.RenderLocations(locations)
-}
-
-// Helper to render JSON output.
-func renderJSON(w io.Writer, v interface{}) error {
-	enc := json.NewEncoder(w)
-	enc.SetIndent("", "  ")
-	return enc.Encode(v)
 }

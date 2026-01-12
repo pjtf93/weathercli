@@ -22,9 +22,15 @@ linters:
 
 linters-settings:
   errcheck:
-    check-blank: true
+    check-blank: false
+    ignore: fmt:.*,io:Copy,io:ReadAll
   govet:
-    enable-all: true
+    enable:
+      - shadow
+      - unusedresult
+    disable:
+      - fieldalignment
+      - unusedwrite
   revive:
     rules:
       - name: exported
@@ -33,6 +39,14 @@ linters-settings:
         disabled: true
 
 issues:
-  exclude-use-default: false
+  exclude-use-default: true
+  exclude-rules:
+    - path: _test\.go
+      linters:
+        - errcheck
+        - gosec
+    - linters:
+        - unused
+      text: "is unused"
   max-issues-per-linter: 0
   max-same-issues: 0

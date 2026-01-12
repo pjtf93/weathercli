@@ -207,11 +207,6 @@ func formatUVLevel(uv float64) string {
 	}
 }
 
-// renderError outputs error messages.
-func (a *App) renderError(err error) {
-	fmt.Fprintf(a.err, "%s %v\n", a.color.Red("Error:"), err)
-}
-
 // renderVerbose outputs verbose messages.
 func (a *App) renderVerbose(format string, args ...interface{}) {
 	fmt.Fprintf(a.err, a.color.Cyan("→ ")+format+"\n", args...)

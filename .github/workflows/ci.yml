@@ -99,5 +99,5 @@ jobs:
     - name: Test CLI (Windows)
       if: runner.os == 'Windows'
       run: |
-        ./weathercli.exe --help
-        ./weathercli.exe search "London" --json
+        .\weathercli.exe --help
+        .\weathercli.exe search "London" --json

@@ -34,22 +34,22 @@ type CurrentWeather struct {
 
 // DailyForecast represents a single day's forecast.
 type DailyForecast struct {
-	Date            time.Time `json:"date"`
-	TempMax         float64   `json:"temp_max"`
-	TempMin         float64   `json:"temp_min"`
-	ApparentMax     float64   `json:"apparent_max"`
-	ApparentMin     float64   `json:"apparent_min"`
-	Precipitation   float64   `json:"precipitation"`
-	Rain            float64   `json:"rain"`
-	Snowfall        float64   `json:"snowfall"`
-	WindSpeedMax    float64   `json:"wind_speed_max"`
-	WindDirection   int       `json:"wind_direction"`
-	UVIndexMax      float64   `json:"uv_index_max"`
-	PrecipProb      int       `json:"precip_prob"` // %
-	Sunrise         time.Time `json:"sunrise"`
-	Sunset          time.Time `json:"sunset"`
-	WeatherCode     int       `json:"weather_code"`
-	Condition       string    `json:"condition"`
+	Date          time.Time `json:"date"`
+	TempMax       float64   `json:"temp_max"`
+	TempMin       float64   `json:"temp_min"`
+	ApparentMax   float64   `json:"apparent_max"`
+	ApparentMin   float64   `json:"apparent_min"`
+	Precipitation float64   `json:"precipitation"`
+	Rain          float64   `json:"rain"`
+	Snowfall      float64   `json:"snowfall"`
+	WindSpeedMax  float64   `json:"wind_speed_max"`
+	WindDirection int       `json:"wind_direction"`
+	UVIndexMax    float64   `json:"uv_index_max"`
+	PrecipProb    int       `json:"precip_prob"` // %
+	Sunrise       time.Time `json:"sunrise"`
+	Sunset        time.Time `json:"sunset"`
+	WeatherCode   int       `json:"weather_code"`
+	Condition     string    `json:"condition"`
 }
 
 // HourlyForecast represents a single hour's forecast.
