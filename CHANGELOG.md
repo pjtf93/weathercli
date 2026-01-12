@@ -11,6 +11,7 @@ All notable changes to this project will be documented in this file.
 - [2026-01-12 10:50] Automated release workflow for multi-platform binary builds
 
 ### Fixed
+- [2026-01-12 10:58] CI: resolved linting and Windows build issues (golangci-lint config, .exe extension)
 - [2026-01-12 10:50] WindDirection: handle negative degree values correctly (normalize to 0-360 range)
 - [2026-01-12 10:38] Timestamp parsing: corrected time/date display from 0001-01-01 to actual values; fixed sunrise/sunset from 00:00 to correct local times. API returns `2006-01-02T15:04` format without timezone suffix—now parse with location timezone instead of RFC3339.
 
