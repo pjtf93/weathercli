@@ -1,5 +1,9 @@
 # ☀️ weathercli — Simple Weather CLI for LLMs & Humans
 
+[![CI](https://github.com/pablotovar/weathercli/workflows/CI/badge.svg)](https://github.com/pablotovar/weathercli/actions)
+[![Go Report Card](https://goreportcard.com/badge/github.com/pablotovar/weathercli)](https://goreportcard.com/report/github.com/pablotovar/weathercli)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
 Fast weather CLI built for LLM integration and human readability. Get current weather or forecasts for any location worldwide.
 
 ## Highlights
@@ -185,3 +189,25 @@ weathercli forecast "Berlin" --days 5 --json | jq '.daily[0].condition'
 - Geocoding uses Open-Meteo's built-in service
 - No API key required, free for non-commercial use
 - Weather codes follow WMO standard (0-99)
+
+## Contributing
+
+Contributions are welcome! Please see [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines.
+
+### Quick Development Setup
+
+```bash
+# Clone and test
+git clone https://github.com/pablotovar/weathercli.git
+cd weathercli
+go test ./...
+
+# Build
+make build
+# or
+go build -o weathercli ./cmd/weathercli
+```
+
+## License
+
+MIT License - see [LICENSE](LICENSE) for details.
