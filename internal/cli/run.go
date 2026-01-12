@@ -113,9 +113,6 @@ func parseWithExit(parser *kong.Kong, args []string, exitCode *int) (ctx *kong.C
 }
 
 func handleError(w io.Writer, c Color, err error) int {
-	if exitErr, ok := err.(ExitCodeError); ok {
-		return int(exitErr)
-	}
 	fmt.Fprintf(w, "%s %v\n", c.Red("Error:"), err)
 	return 1
 }
