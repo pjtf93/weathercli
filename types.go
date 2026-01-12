@@ -122,6 +122,11 @@ func GetCondition(code int) string {
 // WindDirection returns compass direction from degrees.
 func WindDirection(degrees int) string {
 	dirs := []string{"N", "NNE", "NE", "ENE", "E", "ESE", "SE", "SSE", "S", "SSW", "SW", "WSW", "W", "WNW", "NW", "NNW"}
-	idx := int((float64(degrees) + 11.25) / 22.5)
+	// Normalize degrees to 0-360 range
+	normalized := degrees % 360
+	if normalized < 0 {
+		normalized += 360
+	}
+	idx := int((float64(normalized) + 11.25) / 22.5)
 	return dirs[idx%16]
 }
