@@ -186,7 +186,17 @@ func (c *Client) CurrentByCoords(ctx context.Context, lat, lon float64, loc *Loc
 		return nil, err
 	}
 
-	t, _ := time.Parse(time.RFC3339, result.Current.Time)
+	// Load timezone for parsing times
+	tz, err := time.LoadLocation(result.Timezone)
+	if err != nil {
+		tz = time.UTC
+	}
+
+	// Parse time in format "2006-01-02T15:04"
+	t, err := time.ParseInLocation("2006-01-02T15:04", result.Current.Time, tz)
+	if err != nil {
+		return nil, fmt.Errorf("failed to parse time %q: %w", result.Current.Time, err)
+	}
 
 	weather := &CurrentWeather{
 		Time:          t,
@@ -277,7 +287,8 @@ func (c *Client) ForecastByCoords(ctx context.Context, lat, lon float64, days in
 
 	if hourly {
 		var result struct {
-			Hourly struct {
+			Timezone string `json:"timezone"`
+			Hourly   struct {
 				Time          []string  `json:"time"`
 				Temperature   []float64 `json:"temperature_2m"`
 				Apparent      []float64 `json:"apparent_temperature"`
@@ -299,9 +310,18 @@ func (c *Client) ForecastByCoords(ctx context.Context, lat, lon float64, days in
 			return nil, err
 		}
 
+		// Load timezone for parsing times
+		tz, err := time.LoadLocation(result.Timezone)
+		if err != nil {
+			tz = time.UTC
+		}
+
 		forecast.Hourly = make([]HourlyForecast, len(result.Hourly.Time))
 		for i := range result.Hourly.Time {
-			t, _ := time.Parse(time.RFC3339, result.Hourly.Time[i])
+			t, err := time.ParseInLocation("2006-01-02T15:04", result.Hourly.Time[i], tz)
+			if err != nil {
+				return nil, fmt.Errorf("failed to parse hourly time %q: %w", result.Hourly.Time[i], err)
+			}
 			forecast.Hourly[i] = HourlyForecast{
 				Time:          t,
 				Temperature:   result.Hourly.Temperature[i],
@@ -322,7 +342,8 @@ func (c *Client) ForecastByCoords(ctx context.Context, lat, lon float64, days in
 		}
 	} else {
 		var result struct {
-			Daily struct {
+			Timezone string `json:"timezone"`
+			Daily    struct {
 				Time          []string  `json:"time"`
 				TempMax       []float64 `json:"temperature_2m_max"`
 				TempMin       []float64 `json:"temperature_2m_min"`
@@ -345,11 +366,29 @@ func (c *Client) ForecastByCoords(ctx context.Context, lat, lon float64, days in
 			return nil, err
 		}
 
+		// Load timezone for parsing times
+		tz, err := time.LoadLocation(result.Timezone)
+		if err != nil {
+			tz = time.UTC
+		}
+
 		forecast.Daily = make([]DailyForecast, len(result.Daily.Time))
 		for i := range result.Daily.Time {
-			date, _ := time.Parse("2006-01-02", result.Daily.Time[i])
-			sunrise, _ := time.Parse(time.RFC3339, result.Daily.Sunrise[i])
-			sunset, _ := time.Parse(time.RFC3339, result.Daily.Sunset[i])
+			// Parse date (no timezone needed for date-only)
+			date, err := time.Parse("2006-01-02", result.Daily.Time[i])
+			if err != nil {
+				return nil, fmt.Errorf("failed to parse date %q: %w", result.Daily.Time[i], err)
+			}
+
+			// Parse sunrise/sunset with timezone
+			sunrise, err := time.ParseInLocation("2006-01-02T15:04", result.Daily.Sunrise[i], tz)
+			if err != nil {
+				return nil, fmt.Errorf("failed to parse sunrise %q: %w", result.Daily.Sunrise[i], err)
+			}
+			sunset, err := time.ParseInLocation("2006-01-02T15:04", result.Daily.Sunset[i], tz)
+			if err != nil {
+				return nil, fmt.Errorf("failed to parse sunset %q: %w", result.Daily.Sunset[i], err)
+			}
 
 			forecast.Daily[i] = DailyForecast{
 				Date:          date,
