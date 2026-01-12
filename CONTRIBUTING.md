@@ -6,7 +6,7 @@ Thanks for your interest in contributing! 🎉
 
 1. **Fork & Clone**
    ```bash
-   git clone https://github.com/pablotovar/weathercli.git
+   git clone https://github.com/pjtf93/weathercli.git
    cd weathercli
    ```
 

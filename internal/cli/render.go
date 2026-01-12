@@ -5,7 +5,7 @@ import (
 	"fmt"
 	"strings"
 
-	"github.com/pablotovar/weathercli"
+	"github.com/pjtf93/weathercli"
 )
 
 // RenderCurrentWeather outputs current weather in human or JSON format.

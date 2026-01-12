@@ -1,7 +1,7 @@
 # ☀️ weathercli — Simple Weather CLI for LLMs & Humans
 
-[![CI](https://github.com/pablotovar/weathercli/workflows/CI/badge.svg)](https://github.com/pablotovar/weathercli/actions)
-[![Go Report Card](https://goreportcard.com/badge/github.com/pablotovar/weathercli)](https://goreportcard.com/report/github.com/pablotovar/weathercli)
+[![CI](https://github.com/pjtf93/weathercli/workflows/CI/badge.svg)](https://github.com/pjtf93/weathercli/actions)
+[![Go Report Card](https://goreportcard.com/badge/github.com/pjtf93/weathercli)](https://goreportcard.com/report/github.com/pjtf93/weathercli)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 Fast weather CLI built for LLM integration and human readability. Get current weather or forecasts for any location worldwide.
@@ -25,7 +25,7 @@ cd weathercli
 go build -o weathercli cmd/weathercli/main.go
 
 # Or with go install
-go install github.com/pablotovar/weathercli/cmd/weathercli@latest
+go install github.com/pjtf93/weathercli/cmd/weathercli@latest
 ```
 
 ## CLI
@@ -80,7 +80,7 @@ package main
 import (
     "context"
     "fmt"
-    "github.com/pablotovar/weathercli"
+    "github.com/pjtf93/weathercli"
 )
 
 func main() {
@@ -198,7 +198,7 @@ Contributions are welcome! Please see [CONTRIBUTING.md](CONTRIBUTING.md) for gui
 
 ```bash
 # Clone and test
-git clone https://github.com/pablotovar/weathercli.git
+git clone https://github.com/pjtf93/weathercli.git
 cd weathercli
 go test ./...
 

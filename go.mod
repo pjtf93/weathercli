@@ -1,4 +1,4 @@
-module github.com/pablotovar/weathercli
+module github.com/pjtf93/weathercli
 
 go 1.23
 

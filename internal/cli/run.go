@@ -8,7 +8,7 @@ import (
 	"os"
 
 	"github.com/alecthomas/kong"
-	"github.com/pablotovar/weathercli"
+	"github.com/pjtf93/weathercli"
 )
 
 // App wires CLI output and API access.

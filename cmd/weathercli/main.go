@@ -5,7 +5,7 @@ import (
 	"io"
 	"os"
 
-	"github.com/pablotovar/weathercli/internal/cli"
+	"github.com/pjtf93/weathercli/internal/cli"
 )
 
 var exit = os.Exit
