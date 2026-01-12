@@ -26,9 +26,9 @@ linters-settings:
     ignore: fmt:.*,io:Copy,io:ReadAll
   govet:
     enable:
-      - shadow
       - unusedresult
     disable:
+      - shadow
       - fieldalignment
       - unusedwrite
   revive:
