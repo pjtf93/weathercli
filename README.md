@@ -3,8 +3,11 @@
 [![CI](https://github.com/pjtf93/weathercli/workflows/CI/badge.svg)](https://github.com/pjtf93/weathercli/actions)
 [![Go Report Card](https://goreportcard.com/badge/github.com/pjtf93/weathercli)](https://goreportcard.com/report/github.com/pjtf93/weathercli)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Agent Skill](https://img.shields.io/badge/agent-skill-blue)](SKILL.md)
 
 Fast weather CLI built for LLM integration and human readability. Get current weather or forecasts for any location worldwide.
+
+**🤖 LLM Agents:** See [SKILL.md](SKILL.md) for complete integration guide.
 
 ## Highlights
 
@@ -121,7 +124,7 @@ go test -v ./...
 
 ## LLM Integration
 
-Perfect for AI agents and scripts:
+Perfect for AI agents and scripts. See [SKILL.md](SKILL.md) for complete LLM integration guide.
 
 ```bash
 # Get structured JSON output
@@ -138,6 +141,8 @@ weathercli forecast "Berlin" --days 5 --json | jq '.daily[0].condition'
   "command": "weathercli current 'Paris, France' --json"
 }
 ```
+
+**For LLMs:** This tool follows the [agentskills.io](https://agentskills.io) standard. The complete skill specification is in [SKILL.md](SKILL.md).
 
 ### JSON Output Structure
 

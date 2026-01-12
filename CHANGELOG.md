@@ -5,6 +5,7 @@ All notable changes to this project will be documented in this file.
 ## [Unreleased]
 
 ### Added
+- [2026-01-12 11:03] SKILL.md for LLM agent integration (agentskills.io compliant)
 - [2026-01-12 10:50] Open-source infrastructure: MIT license, GitHub Actions CI/CD, comprehensive test suite (80.4% coverage), CONTRIBUTING.md, golangci-lint config
 - [2026-01-12 10:50] Integration tests for current weather, forecasts (daily/hourly), and location search
 - [2026-01-12 10:50] CI workflows for testing on multiple Go versions and platforms (Linux/Mac/Windows)
